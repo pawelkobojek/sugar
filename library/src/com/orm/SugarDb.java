@@ -157,6 +157,7 @@ public class SugarDb extends SQLiteOpenHelper {
         for (T domain : domainClasses) {
             createTable(domain, sqLiteDatabase);
         }
+        executeSugarUpgrade(sqLiteDatabase, 0, getDatabaseVersion(context));
     }
 
     private <T extends SugarRecord<?>> void createTable(T table, SQLiteDatabase sqLiteDatabase) {
